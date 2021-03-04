@@ -1,0 +1,69 @@
+<template>
+  <div id="filter">
+    <div>
+      <font-awesome-icon icon="search" />
+      <input type="text" placeholder="Search for a country" @keyup="onSearch"/>
+    </div>
+    <div>
+      <select @change="regionchange">
+        <option value="Africa">Africa</option>
+        <option value="Americas">America</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+      </select>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props : {
+    regionchange: Function,
+    onSearch: Function,
+  }
+}
+</script>
+
+<style lang="css" scoped>
+select option{
+  box-shadow: 0 0 9px #80808087;
+  border-radius: 5px;
+  padding: 13px;
+  background: var(--background);
+}
+#filter {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 0 50px;
+  margin-bottom: 50px;
+}
+
+#filter div {
+  box-shadow: 0 0 9px #80808087;
+  border-radius: 5px;
+  padding: 13px;
+  background: var(--background);
+}
+
+#filter div input {
+  border: none;
+  border-radius: 5px;
+  width: 400px;
+  margin-left: 10px !important;
+}
+
+#filter select {
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+}
+
+#filter select option {
+  background: var(--element);;
+  color: var(--text);
+  width: 500px;
+  padding: 13px;
+}
+</style>
