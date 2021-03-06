@@ -36,8 +36,8 @@ export default {
       this.allCountries = result.data;
       let pais = [];
       for (let i = 0; i < 8; i++) {
-        let j = Math.floor(Math.random() * (result.data.length + 1)); // parte de 0 a tamanho do array
-        pais[i] = result.data[j];
+        let index = Math.floor(Math.random() * (result.data.length + 1)); // parte de 0 a tamanho do array
+        pais[i] = result.data[index];
       }
       this.countries = pais;
     });
@@ -45,19 +45,24 @@ export default {
   },
   methods: {
     onRegionChange: function (e) {
+     
       let pais = [];
+      if(e.target.selectedOptions[0].value){
       this.allCountries.map((count) => {
         if (
           count.region === e.target.selectedOptions[0].value
         ) {
-          console.log(count.region);
-          console.log(e.target.selectedOptions[0].value);
           pais.push(count);
         }
       });
       this.countries = pais;
-      console.log(pais)
-      console.log(this.countries);
+      }else{
+        for(let i = 0 ; i < 8 ; i++){
+          let index = Math.floor(Math.random() * (this.allCountries.length + 1)); // parte de 0 a tamanho do array
+            pais[i] = this.allCountries[index];
+        }
+        this.countries = pais;
+      }
     },
     onSearch: function (e) {
       let pais = [];
@@ -72,6 +77,21 @@ export default {
         this.countries = pais;
       });
     },
+    /*remove: function(array, index){
+        if (index > -1) {
+          array.splice(index, 1);
+        }
+       return array;
+    },
+    baralhar: function(countries) {
+      let paises = [];
+
+      while(countries){
+        paises.
+      }
+
+      return paises;
+    },*/
   },
 };
 </script>

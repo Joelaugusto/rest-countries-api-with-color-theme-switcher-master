@@ -8,9 +8,15 @@ export default {};
 
 <style lang="css">
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap");
-body {
-  margin: 0 auto;
+
+
+
+*{
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
 }
+
 
 /*:root {
   color-scheme: light dark; /* both supported */ /*
@@ -34,6 +40,7 @@ body.dark {
 
 body{
   background: var(--background);
+  margin: 0 auto;
 }
 
 h1,
