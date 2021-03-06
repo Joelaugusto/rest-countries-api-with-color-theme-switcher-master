@@ -20,7 +20,6 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        /*box-shadow: 0 0 9px #80808087;*/
         padding: 0 50px;
         margin-bottom: 50px;
         background: var(--second-background);
