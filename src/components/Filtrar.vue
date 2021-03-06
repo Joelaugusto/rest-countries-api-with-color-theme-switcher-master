@@ -36,7 +36,7 @@ select option{
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  padding: 0 50px;
+  padding: 0 5%;
   margin-bottom: 50px;
 }
 
@@ -71,4 +71,19 @@ select option{
   width: 500px;
   padding: 13px;
 }
+
+@media (max-width: 600px){
+         #filter{
+           flex-direction: column;
+           width: 90vw;
+         }
+          #filter div input{
+           width: auto;
+         }
+
+         #filter div:last-child{
+           margin-top: 50px;
+           width: 150px !important;
+         }
+     }
 </style>

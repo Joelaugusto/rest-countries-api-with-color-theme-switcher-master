@@ -3,10 +3,10 @@ import App from './App.vue'
 import router from './router'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faSearch,faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faSearch,faMoon, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faSearch, faMoon);
+library.add(faSearch, faMoon, faArrowLeft);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

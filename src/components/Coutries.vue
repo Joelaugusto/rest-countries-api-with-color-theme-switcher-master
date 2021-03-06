@@ -100,8 +100,17 @@ export default {
 .container1 {
   display: flex;
   flex-direction: row;
-  margin: 0 50px;
+  margin: 0 5vw;
   justify-content: space-between;
   flex-flow: wrap;
 }
+
+@media (max-width:600px){
+         .container1{
+           justify-content: center;
+           margin: 0;
+         }
+
+  
+     }
 </style>

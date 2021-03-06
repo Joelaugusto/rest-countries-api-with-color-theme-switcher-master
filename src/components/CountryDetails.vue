@@ -1,6 +1,8 @@
 <template>
   <div class="countryDetails">
-    <a href="#"></a>
+    <div class="back">
+      <router-link to="/"><font-awesome-icon icon="arrow-left" />Back</router-link>
+    </div>
     <div>
       <img :src="flag" />
       <div class="">
@@ -17,14 +19,16 @@
             <div>
               <p>Top Level Domain: {{ topLevelDomain }}</p>
               <p>Currencies: {{ currencies }}</p>
-              <p>Languages: {{lang}}</p>
+              <p>Languages: {{ lang }}</p>
             </div>
           </div>
         </div>
         <div class="borderCountries">
           <p>Border Countries:</p>
-          <div v-for="(contry, index) in borderCountry" :key="index">
-            <router-link :to="'/details/' + contry">{{ contry }}</router-link>
+          <div class="borders">
+            <div v-for="(contry, index) in borderCountry" :key="index">
+              <router-link :to="'/details/' + contry">{{ contry }}</router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -47,24 +51,45 @@ export default {
     languages: [String],
     borderCountry: [String],
   },
-  data(){
-    return{
-     lang : ''
-    }
+  data() {
+    return {
+      lang: "",
+    };
   },
   created: function languages() {
-    this.languages.map((language,index)=>{
-      index!==0?this.lang +=", "+language.nativeName:this.lang +=language.name;
+    this.languages.map((language, index) => {
+      index !== 0
+        ? (this.lang += ", " + language.nativeName)
+        : (this.lang += language.name);
     });
-  }
+  },
 };
 </script>
 
+
 <style lang="css" scoped>
+.back {
+  margin-top: 12px;
+  margin-right: 10px;
+  box-shadow: 0 0 2px var(--shadow);
+  padding: 2px 22px;
+  height: 22px;
+  border-radius: 2px;
+}
+
+.back a {
+  font-size: 14px;
+  text-decoration: none;
+  padding-top: 2px;
+}
+
+.back a svg{
+  margin-right: 5px;
+}
 .countryDetails {
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 0 50px;
 }
 
 .countryDetails div {
@@ -93,6 +118,7 @@ export default {
 
 .info-div h3 {
   margin: 30px 100px;
+  font-size: x-large;
 }
 
 .info-div div {
@@ -113,18 +139,73 @@ export default {
   margin-right: 30px;
 }
 
-.borderCountries div {
+.borderCountries div div {
   margin-top: 12px;
   margin-right: 10px;
-  box-shadow: 0 0 2px grey;
-  padding: 2px 27px;
+  box-shadow: 0 0 2px var(--shadow);
+  padding: 2px 22px;
   height: 22px;
   border-radius: 2px;
 }
 
-.borderCountries div a {
+.borderCountries div div a {
   font-size: 14px;
   text-decoration: none;
   padding-top: 2px;
+}
+
+.borders {
+  flex-direction: row !important;
+}
+
+.back {
+  box-shadow: 0 0 2px var(--shadow);
+    padding: 2px 22px !important;
+    height: 22px;
+    border-radius: 2px;
+    width: 50px;
+    margin-bottom: 60px !important;
+}
+
+.back a {
+  font-size: 14px;
+  text-decoration: none;
+  padding-top: 2px;
+}
+
+@media (max-width: 600px) {
+  .countryDetails div,
+  .borderCountries,
+  .countryDetails.countryInfo,
+  .details,
+  .info-div {
+    flex-direction: column !important;
+    margin: 0;
+    padding: 0;
+  }
+  .countryDetails div img {
+    height: 200px;
+    width: 85vw;
+  }
+  .countryDetails {
+        margin: 0 7vw 50px 7vw;
+    padding: 0;
+  }
+  .info-div h3 {
+    margin: 40px 0 20px 0;
+  }
+  .info-div div p {
+    margin: 2px 0;
+  }
+
+  .details div {
+    margin-bottom: 30px;
+  }
+
+  .borderCountries div {
+    flex-direction: row !important;
+    margin-right: 20px;
+    flex-wrap: wrap;
+  }
 }
 </style>
