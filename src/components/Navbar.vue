@@ -1,13 +1,17 @@
 <template>
     <div id="navbar">
         <h2>Where in the world?</h2>
-        <button><font-awesome-icon icon="moon" />Dark Mode</button>
+        <button @click="changeTheme"><font-awesome-icon icon="moon" />Dark Mode</button>
     </div>
 </template>
 
 <script>
     export default {
-        
+        methods: {
+            changeTheme: function () {
+                document.body.classList.toggle("dark");
+            }
+        }
     }
 </script>
 
@@ -16,15 +20,17 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background: var(--background);
-        box-shadow: 0 0 9px #80808087;
+        /*box-shadow: 0 0 9px #80808087;*/
         padding: 0 50px;
         margin-bottom: 50px;
+        background: var(--second-background);
+        box-shadow: 0 0 5px var(--shadow);
     }
 
     #navbar button {
         background: transparent;
         border: none;
+        color: var(--text);
     }
 
      #navbar button svg{

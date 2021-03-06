@@ -13,20 +13,28 @@ body {
 }
 
 /*:root {
-  color-scheme: light dark; /* both supported *//*
+  color-scheme: light dark; /* both supported */ /*
 }*/
-
-.root {
-  --background: hsl(0, 0%, 98%);
+body {
+  --background:#FFFFFF;
+  --second-background: #FAFAFA;
   --element: hsl(0, 0%, 100%);
   --text: hsl(200, 15%, 8%);
+  --shadow: #8080803d;
 }
-/*:-moz-drag-over
-[data-theme="dark"] {
+
+body.dark {
   --background: hsl(207, 26%, 17%);
+  --second-background: #2B3743;
   --element: hsl(209, 23%, 22%);
   --text: hsl(0, 0%, 100%);
-}*/
+  --shadow: #8080803d;
+
+}
+
+body{
+  background: var(--background);
+}
 
 h1,
 h2,
@@ -34,9 +42,7 @@ h3,
 p,
 a {
   font-family: "Nunito Sans", sans-serif;
-  color: var(--text)
+  color: var(--text);
 }
-
-
 </style>
 

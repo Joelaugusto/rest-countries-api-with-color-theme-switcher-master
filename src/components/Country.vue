@@ -33,12 +33,12 @@ export default {
   align-items: baseline;
   margin: 0;
   padding: 0 auto;
-  background: var(--element);
+  background: var(--second-background);
   width: 250px;
   height: 350px;
   margin-bottom: 60px;
   border-radius: 5px;
-  box-shadow: 0 0 9px #80808087;
+  box-shadow: 0 0 9px var(--shadow);
 }
 
 .container img {
@@ -50,6 +50,6 @@ export default {
 .details {
   text-align: start;
   padding-left: 20px;
-  background: var(--element);
+  background: var(--second-background);
 }
 </style>

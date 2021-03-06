@@ -91,10 +91,6 @@ export default {
   flex-direction: row !important;
 }
 
-.info-div {
-  /*-top: 20px;*/
-}
-
 .info-div h3 {
   margin: 30px 100px;
 }

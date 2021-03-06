@@ -27,10 +27,9 @@ export default {
 
 <style lang="css" scoped>
 select option{
-  box-shadow: 0 0 9px #80808087;
+  /*box-shadow: 0 0 9px #80808087;*/
   border-radius: 5px;
   padding: 13px;
-  background: var(--background);
 }
 #filter {
   display: flex;
@@ -41,10 +40,11 @@ select option{
 }
 
 #filter div {
-  box-shadow: 0 0 9px #80808087;
+  /*box-shadow: 0 0 9px #80808087;*/
   border-radius: 5px;
   padding: 13px;
-  background: var(--background);
+  background: var(--second-background);
+  box-shadow: 0 0 5px var(--shadow);
 }
 
 #filter div input {
@@ -52,12 +52,16 @@ select option{
   border-radius: 5px;
   width: 400px;
   margin-left: 10px !important;
+  background: var(--second-background);
+  color: var(--text);
 }
 
 #filter select {
   border: none;
   border-radius: 5px;
   width: 150px;
+  background: var(--second-background);
+  color: var(--text);
 }
 
 #filter select option {
