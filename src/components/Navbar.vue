@@ -1,15 +1,25 @@
 <template>
     <div id="navbar">
         <h2>Where in the world?</h2>
-        <button @click="changeTheme"><font-awesome-icon icon="moon" />Dark Mode</button>
+        <button @click="changeTheme"><font-awesome-icon icon="moon" />{{lightDark}} Mode</button>
     </div>
 </template>
 
 <script>
     export default {
+        data(){
+            return{
+                lightDark: " Dark",
+            }
+        },
         methods: {
             changeTheme: function () {
                 document.body.classList.toggle("dark");
+                if(this.lightDark===" Dark"){
+                    this.lightDark = " Light";
+                }else{
+                    this.lightDark = " Dark";
+                }
             }
         }
     }
