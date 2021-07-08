@@ -1,24 +1,5 @@
-# rest-countries-api-with-color-theme-switcher-master
+# rest-countries-api-with-color-theme-switcher-master-page
 
-## Project setup
-```
-yarn install
-```
+Projecto feito em VueJS
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Para visualizar a página, [clica aqui](https://joelaugusto.github.io/rest-countries-api-with-color-theme-switcher-master-page/).
