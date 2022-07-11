@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <router-link :to="'/details/'+alpha3Code">
-      <img :src="flag" />
+      <img :src="flags.svg" />
     </router-link>
     <div class="details">
       <h3>{{ name }}</h3>
-      <p>population : {{ population }}</p>
+      <p>Population : {{ population }}</p>
       <p>Region: {{ region }}</p>
       <p>Capital: {{ capital }}</p>
     </div>
@@ -20,7 +20,7 @@ export default {
     region: String,
     population: Number,
     capital: String,
-    flag: String,
+    flags: Object,
     alpha3Code: String,
   },
 };

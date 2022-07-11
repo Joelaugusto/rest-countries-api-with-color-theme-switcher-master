@@ -4,12 +4,12 @@
     <div class="container1">
       <div v-for="(country, index) in countries" :key="index">
         <country
-          :name="country.name"
+          :name="country.common"
           :population="country.population"
-          :capital="country.capital"
+          :capital="country.capital ? country.capital[0] : null"
           :region="country.region"
-          :flag="country.flag"
-          :alpha3Code="country.alpha3Code"
+          :flags="country.flags"
+          :alpha3Code="country.cca3"
         />
       </div>
     </div>
@@ -26,72 +26,54 @@ export default {
     Country,
     Filtrar,
   },
-  data: () =>({
-      countries: [],
-      allCountries: [],
-    }),
-  created: function () {
-    if(this.countries.length === 0){
-      api.get("/all").then((result) => {
-      this.allCountries = result.data;
-      let pais = [];
-      for (let i = 0; i < 8; i++) {
-        let index = Math.floor(Math.random() * (result.data.length + 1)); // parte de 0 a tamanho do array
-        pais[i] = result.data[index];
-      }
-      this.countries = pais;
-    });
+  data: () => ({
+    countries: [],
+    allCountries: [],
+  }),
+  created: async function() {
+    if (this.countries.length === 0) {
+      await api.get("/all").then((result) => {
+        this.allCountries = result.data;
+        let pais = [];
+        for (let i = 0; i < 8; i++) {
+          let index = Math.floor(Math.random() * (result.data.length + 1)); // parte de 0 a tamanho do array
+          pais[i] = result.data[index];
+        }
+        this.countries = pais;
+      });
     }
   },
   methods: {
-    onRegionChange: function (e) {
-     
+    onRegionChange: function(e) {
       let pais = [];
-      if(e.target.selectedOptions[0].value){
-      this.allCountries.map((count) => {
-        if (
-          count.region === e.target.selectedOptions[0].value
-        ) {
-          pais.push(count);
-        }
-      });
-      this.countries = pais;
-      }else{
-        for(let i = 0 ; i < 8 ; i++){
-          let index = Math.floor(Math.random() * (this.allCountries.length + 1)); // parte de 0 a tamanho do array
-            pais[i] = this.allCountries[index];
+      if (e.target.selectedOptions[0].value) {
+        this.allCountries.map((count) => {
+          if (count.region === e.target.selectedOptions[0].value) {
+            pais.push(count);
+          }
+        });
+        this.countries = pais;
+      } else {
+        for (let i = 0; i < 8; i++) {
+          let index = Math.floor(
+            Math.random() * (this.allCountries.length + 1)
+          ); // parte de 0 a tamanho do array
+          pais[i] = this.allCountries[index];
         }
         this.countries = pais;
       }
     },
-    onSearch: function (e) {
+    onSearch: function(e) {
       let pais = [];
-
       this.allCountries.map((count) => {
         if (
-          count.name.toLowerCase().includes(e.target.value.toLowerCase()) ||
-          count.nativeName.toLowerCase().includes(e.target.value.toLowerCase())
+          count.name.common.toLowerCase().includes(e.target.value.toLowerCase())
         ) {
           pais.push(count);
         }
         this.countries = pais;
       });
     },
-    /*remove: function(array, index){
-        if (index > -1) {
-          array.splice(index, 1);
-        }
-       return array;
-    },
-    baralhar: function(countries) {
-      let paises = [];
-
-      while(countries){
-        paises.
-      }
-
-      return paises;
-    },*/
   },
 };
 </script>
@@ -105,12 +87,10 @@ export default {
   flex-flow: wrap;
 }
 
-@media (max-width:600px){
-         .container1{
-           justify-content: center;
-           margin: 0;
-         }
-
-  
-     }
+@media (max-width: 600px) {
+  .container1 {
+    justify-content: center;
+    margin: 0;
+  }
+}
 </style>
